@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>__REPORT_TITLE__</title>
+<style>
+  :root{
+    --primary:#1a3a5c; --accent:#2271b0; --gold:#c9a227;
+    --bg:#f4f6fa; --card:#ffffff; --line:#e3e8f0;
+    --text:#1f2937; --muted:#6b7280;
+    --good:#1e7e34; --partial:#b8860b; --gap:#b3261e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:24px;}
+  .page{max-width:1080px;margin:0 auto;}
+  /* header */
+  .hero{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border-radius:14px;padding:36px 40px;margin-bottom:22px;}
+  .hero .kicker{font-size:13px;letter-spacing:2px;opacity:.85;text-transform:uppercase;margin-bottom:8px;}
+  .hero h1{font-size:28px;margin-bottom:10px;}
+  .hero .sub{font-size:14px;opacity:.92;max-width:760px;}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:22px;font-size:13px;}
+  .hero .meta b{display:block;font-size:11px;opacity:.7;letter-spacing:1px;}
+  .hero .meta span{font-size:15px;}
+  /* cards */
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 30px;margin-bottom:22px;}
+  .sec-title{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+  .sec-title .no{width:34px;height:34px;border-radius:8px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0;}
+  .sec-title h2{font-size:20px;}
+  .sec-title p{font-size:13px;color:var(--muted);margin-top:2px;}
+  /* overview */
+  .overview p{font-size:15px;color:var(--text);}
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-top:20px;}
+  .metric{background:var(--bg);border-radius:10px;padding:16px;text-align:center;}
+  .metric .v{font-size:30px;font-weight:800;color:var(--primary);}
+  .metric .l{font-size:13px;color:var(--muted);margin-top:2px;}
+  .metric .v.good{color:var(--good);}.metric .v.partial{color:var(--partial);}.metric .v.gap{color:var(--gap);}
+  /* tables */
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th,td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top;}
+  th{background:var(--primary);color:#fff;font-weight:600;white-space:nowrap;}
+  tr:nth-child(even) td{background:#fafbfe;}
+  .status{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;white-space:nowrap;}
+  .st-good{background:#e6f4ea;color:var(--good);}
+  .st-partial{background:#fdf3dc;color:var(--partial);}
+  .st-gap{background:#fde8e7;color:var(--gap);}
+  .tag{display:inline-block;background:#eef3fa;color:var(--accent);border-radius:6px;padding:2px 8px;font-size:12px;margin:1px 2px;}
+  /* lists */
+  ul.clean{list-style:none;}
+  ul.clean li{padding:12px 14px;border-left:4px solid var(--accent);background:var(--bg);border-radius:0 8px 8px 0;margin-bottom:10px;}
+  ul.clean li b{color:var(--primary);}
+  .doc-row{display:flex;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line);}
+  .doc-row:last-child{border-bottom:none;}
+  .doc-row .src{flex:0 0 40%;font-size:13px;color:var(--muted);}
+  .doc-row .arrow{color:var(--gold);font-weight:700;}
+  .doc-row .dst{flex:1;font-size:13.5px;}
+  /* plan */
+  .phase{border:1px solid var(--line);border-radius:10px;margin-bottom:14px;overflow:hidden;}
+  .phase-head{background:var(--bg);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .phase-head .name{font-weight:700;color:var(--primary);}
+  .phase-head .time{font-size:12px;color:var(--muted);}
+  .phase-body{padding:14px 18px;}
+  .phase-body ul.clean li{border-left-color:var(--gold);}
+  .phase-body .owner{font-size:12px;color:var(--muted);margin-top:8px;}
+  .download,.print{display:inline-block;margin-top:10px;margin-right:10px;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:11px 22px;font-size:14px;cursor:pointer;text-decoration:none;}
+  .print{background:var(--primary);}
+  .footer{text-align:center;color:var(--muted);font-size:12px;padding:20px 0 8px;}
+  .suggest-note{background:#fff8e6;border:1px solid #f0e0a8;border-radius:8px;padding:12px 16px;font-size:13px;color:#7a5f11;margin-top:14px;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <div class="kicker">ISO 9001:2026 质量管理体系升版辅导报告</div>
+    <h1>__REPORT_TITLE__</h1>
+    <div class="sub">__OVERVIEW__</div>
+    <div class="meta">
+      <div><b>受审组织</b><span>__COMPANY__</span></div>
+      <div><b>体系范围</b><span>__SCOPE__</span></div>
+      <div><b>报告日期</b><span>__DATE__</span></div>
+      <div><b>编制角色</b><span>__REVIEWER__</span></div>
+    </div>
+  </div>
+
+  <section id="summary">
+    <div class="sec-title"><div class="no">1</div><div><h2>差距总览</h2><p>当前体系相对 ISO 9001:2026 的整体符合性评估</p></div></div>
+    <div class="overview">__SUMMARY_NOTE__</div>
+    <div class="metrics">
+      <div class="metric"><div class="v good">__CNT_GOOD__</div><div class="l">基本符合</div></div>
+      <div class="metric"><div class="v partial">__CNT_PARTIAL__</div><div class="l">部分符合</div></div>
+      <div class="metric"><div class="v gap">__CNT_GAP__</div><div class="l">存在差距</div></div>
+      <div class="metric"><div class="v">__CNT_TOTAL__</div><div class="l">评估项总数</div></div>
+    </div>
+  </section>
+
+  <section id="changes">
+    <div class="sec-title"><div class="no">2</div><div><h2>新版标准变更点识别与体系要求解读</h2><p>ISO 9001:2015 与 9001:2026 逐条款差异及蕴含的管理体系要求</p></div></div>
+    <table>
+      <thead><tr><th style="width:8%">条款</th><th style="width:16%">变更点</th><th>2026 版要求解读</th><th style="width:12%">现状判定</th></tr></thead>
+      <tbody>
+      __CHANGE_POINTS_ROWS__
+      </tbody>
+    </table>
+  </section>
+
+  <section id="improvements">
+    <div class="sec-title"><div class="no">3</div><div><h2>运行改进建议</h2><p>针对贵司体系运行现状，在运行层面需要做出的调整</p></div></div>
+    <ul class="clean">
+    __RUNNING_IMPROVEMENTS_ITEMS__
+    </ul>
+  </section>
+
+  <section id="docs">
+    <div class="sec-title"><div class="no">4</div><div><h2>管理体系文件变更建议</h2><p>受影响文件的变更路径与处理方式</p></div></div>
+    __DOC_CHANGES_ROWS__
+  </section>
+
+  <section id="plan">
+    <div class="sec-title"><div class="no">5</div><div><h2>升版执行计划</h2><p>未来一段时间的推进安排（建议在 2029-09-15 前完成转版认证）</p></div></div>
+    __PLAN_PHASES__
+    <div class="suggest-note">提示：执行计划基于本次收集的运行现状与体系文件给出，实际推进时需根据组织资源与认证机构排期动态调整。转版过渡期截至 2029-09-15，此后 ISO 9001:2015 证书失效。</div>
+  </section>
+
+  <div style="text-align:center;">
+    <button class="print" onclick="window.print()">打印 / 保存 PDF</button>
+  </div>
+  <div class="footer">本报告由 ISO 9001:2026 升版辅导技能基于贵司体系运行现状生成，供内部转版策划参考。</div>
+</div>
+</body>
+</html>
